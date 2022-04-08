@@ -24,11 +24,7 @@ class ItemStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //TODO Validation Задание: Добавить правила валидации для поля title
-            // Поле обязательно
-            // Строковое
-            // Минимам 5 символов
-            // Максимум 15 символов
+            'title'=>'required|string|min:5|max:15',
         ];
     }
 }
