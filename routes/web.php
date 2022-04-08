@@ -2,13 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/hello' , function (){ return view('hello'); });
+Route::view('/hello' , 'hello');
 
 
 Route::get('/' , [\App\Http\Controllers\IndexController::class, 'index']);
 
 
-Route::get('/page/contact', function (){ return view('pages.contact');})->name('contact');
+Route::view('/page/contact','pages.contact')->name('contact');
 
 
 Route::get('/users/{id}', [\App\Http\Controllers\UserController::class, 'show']);
@@ -18,7 +18,7 @@ Route::get('/users/bind/{user}', [\App\Http\Controllers\UserController::class,'s
 
 
 
-Route::get('/bad', function (){ return redirect('/good'); });
+Route::redirect('/bad', '/good');
 
 
 Route::resource('users_crud', \App\Http\Controllers\UserCrudController::class);
